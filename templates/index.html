@@ -1,0 +1,30 @@
+{% load socialaccount %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1> My google OAuth Project </h1>
+    {% if user.is_authenticated %}
+    <p>Welcome. <br> You are logged in as {{user.username}} </p>
+    
+    <div class="btn-cont">
+        <form action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-item">View Emails</button>
+        </form>
+        <a class="btn btn-item" href="{% url 'account_logout' %}"> Log Out
+        </a>
+    </div>
+    {% else %}
+    
+    <a class="btn" href="{% provider_login_url 'google' process='connect' %}">Login with Google</a>
+    
+    {% endif %}
+</body>
+</html>

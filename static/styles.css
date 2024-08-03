@@ -1,0 +1,120 @@
+
+html {
+    font-size: 62.5%;
+    height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Cute Font", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 2rem;
+    padding: 20px;
+    background: #f1f1f1;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+.header h2{
+    font-size: 8rem;
+    line-height:0%;
+    letter-spacing: 2px;
+}
+
+.header {
+    padding: 2px;
+    font-size: 40px;
+    text-align: center;
+    background: white;
+}
+
+.leftcolumn {   
+    float: left;
+    width: 100%;
+}
+
+.card {
+    background-color:white;;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: black;
+}
+
+.card a {
+    text-decoration: none;
+    color: black;
+}
+
+.card:hover{
+    background-color:blanchedalmond;
+}
+
+.single{
+    background-color:white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    border-style: solid;
+    margin-bottom:40px;
+}
+
+.row:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.container {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.items {
+    flex:1 1 auto;
+}
+
+.btn {
+    border-style: solid;
+    border-radius:4px;
+    border-width:2px;
+    margin: 20px;
+    font-family: "Cute Font", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size:2rem;
+    text-transform: uppercase;
+    background-color:white;
+    text-decoration: none;
+    color: black;
+    border-color:black;
+    padding: 5px;
+}
+
+.btn:hover {
+    background-color:blanchedalmond;
+}
+
+.btn-cont{
+    display:flex;
+    flex-direction:row;
+    /* direction:rtl; */
+}
+
+.btn-item{
+    flex: 0 1 auto;
+}
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+}

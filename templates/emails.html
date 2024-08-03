@@ -1,0 +1,51 @@
+<!-- templates/emails.html -->
+{% load socialaccount %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <!-- <title>Emails</title> -->
+</head>
+<body>
+    <div class="header">
+        <h2>Emails</h2>
+    </div>
+    <!-- <ul> -->
+    {% if emails %}
+        {% for email in emails %}
+            <!-- <li>{{ email }}</li> -->
+            <div class="card">
+                <a href="https://mail.google.com/mail/u/0/#inbox/{{email.id}}" target="_blank">
+                    <p>{{email.snippet}}</p>
+                </a>
+            </div>
+            </a>
+        {% endfor %}
+    {% else %}
+        <li>No emails found.</li>
+    {% endif %}
+    <!-- </ul> -->
+
+    {% if summarized%}
+        <div class="card">
+        {% for summary in summarized %}
+            <li>{{ summary }}</li>
+        {% endfor %}
+        </div>
+        <form action="{% url 'emails' %}" method="get">
+            <button class="btn">Hide Email Summary</button>
+        </form>
+    {% else %}
+        <form action="{% url 'summ' %}" method="get">
+            <button class="btn">View Email Summary</button>
+        </form>
+    {% endif %}
+        <a class='btn' href="{% url 'account_logout' %}"> Log Out</a>
+</body>
+</html>
