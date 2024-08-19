@@ -19,9 +19,6 @@ SCOPES = ['https://www.googleapis.com/auth/gmail.readonly','https://www.googleap
 @cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def index(request):
     if request.method == 'POST':
-        # authorization_response = request.build_absolute_uri()
-        # authorization_url, state = start_oauth_flow()
-        # logger.debug('Made It.')
         flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
         'client_secret.json',
         scopes=SCOPES)
